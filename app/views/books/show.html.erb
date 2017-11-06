@@ -7,8 +7,8 @@
   <h3> Comments </h3>
 
   <% @comments.each do |comment| %>
-    <p><strong><%= comment.author %></strong></p>
-    <%= comment.text %>
+    <p><strong><%= comment.author %>:</strong>
+    <%= comment.text %></p>
   <% end %>
 <% end %> 
 
