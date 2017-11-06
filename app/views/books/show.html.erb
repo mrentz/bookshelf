@@ -1,0 +1,37 @@
+<h1><%= @book.title %></h1>
+
+<h2><%=link_to @book.title, book_path(@book) %></h2>
+<p><%= @book.thoughts %></p>
+
+<% if @comments %>
+  <h3> Comments </h3>
+
+  <% @comments.each do |comment| %>
+    <p><strong><%= comment.author %></strong></p>
+    <%= comment.text %>
+  <% end %>
+<% end %> 
+
+<h3> Post Your Comment </h3>
+
+<div id=form>
+
+  <%= form_for([@book, Comment.new]) do |f| %>
+  
+  <div>
+    <p><%= f.label :author %></p>
+    <p><%= f.text_field :author %></p>
+  </div>
+
+  <div>
+    <p><%= f.label :text, "Comment" %></p>
+    <p><%= f.text_field :text %></p>
+  </div>
+  
+  <%= f.submit 'Save' %>
+
+  <% end %>
+  
+</div>
+
+  
