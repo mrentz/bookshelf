@@ -7,8 +7,11 @@
 
   <% @comments.each do |comment| %>
     <p><strong><%= comment.author %>:</strong>
-    <%= comment.text %></p>
-  <% end %>
+      <%= comment.text %></p>
+    <% end %>
+
+    <%= will_paginate @comments %>
+
 <% end %> 
 
 <h3> Post Your Comment </h3>
@@ -33,4 +36,6 @@
   
 </div>
 
-  
+<div><p>
+    <li><%= link_to "Back to Book List",   root_path %></li>
+  </p></div>
