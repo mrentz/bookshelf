@@ -1,29 +1,7 @@
-<<<<<<< HEAD
-# README
+Bookshelf
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Working with gems "will_paginate", etc
+Ordering paginated lists
+And working with associations and nested attributes
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
-# bookshelf
-another rails tutorial app
->>>>>>> c7ac4afcf69ffd06fc736f8642e16e513c6a5d8e
+Visit url: https://best-book-review-site-ever.herokuapp.com/
