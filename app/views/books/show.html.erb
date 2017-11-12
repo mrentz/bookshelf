@@ -36,6 +36,17 @@
   
 </div>
 
-<div><p>
-    <li><%= link_to "Back to Book List",   root_path %></li>
-  </p></div>
+<div><br><br>
+Admin Actions:
+
+  <%= link_to 'Edit', edit_book_path(@book) %>
+  
+  <%= link_to 'Delete',
+      book_path(@book),
+      method: :delete,
+      data: {confirm: "Do you really want to delete this book?" } %>
+  
+<br><br>
+</div>
+
+<%= render 'return' %>
