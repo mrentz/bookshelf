@@ -10,8 +10,27 @@
   </head>
 
   <body>
-    <div class= "container">
+   <nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Bookshelf', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Home', root_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
     <div id="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
