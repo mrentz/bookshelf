@@ -1,5 +1,6 @@
 class CreateAdmins < ActiveRecord::Migration[5.0]
   def change
+    drop_table :admins
     create_table :admins do |t|
       t.string :login
       t.string :crypted_password

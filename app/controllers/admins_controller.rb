@@ -1,13 +1,13 @@
 class AdminsController < ApplicationController
   def new
-    @user = User.new
+    @admin = Admin.new
   end
 
   def create
-    @user = User.new(users_params)
-    if @user.save
+    @admin = Admin.new(admins_params)
+    if @admin.save
       flash[:success] = "Account registered!"
-      redirect_to root_path
+      redirect_to books_path
     else
       render :new
     end
@@ -15,8 +15,8 @@ class AdminsController < ApplicationController
 
   private
 
-  def users_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+  def admins_params
+    params.require(:admin).permit(:login, :password, :password_confirmation)
   end
 end
 
