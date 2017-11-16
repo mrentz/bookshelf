@@ -2,6 +2,16 @@
 
 one:
   login: MyString
+  crypted_password: MyString
+  string: MyString
+  password_salt: MyString
+  persistence_token: MyString
+  string: MyString
 
 two:
   login: MyString
+  crypted_password: MyString
+  string: MyString
+  password_salt: MyString
+  persistence_token: MyString
+  string: MyString
