@@ -21,6 +21,7 @@
       <ul class="nav navbar-nav pull-right">
         <% if current_admin %>
           <li><span><%= current_admin.login %></span></li>
+          <li><%= link_to 'Profile', admin_path(current_admin) %></li>
           <li><%= link_to 'Sign Out', sign_out_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Sign In', sign_in_path %></li>

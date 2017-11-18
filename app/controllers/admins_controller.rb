@@ -13,6 +13,10 @@ class AdminsController < ApplicationController
     end
   end
 
+  def show
+    @admin = current_admin
+  end
+  
   private
 
   def admins_params
