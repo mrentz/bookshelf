@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116094900) do
+ActiveRecord::Schema.define(version: 20171118212459) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "login"
@@ -18,8 +18,15 @@ ActiveRecord::Schema.define(version: 20171116094900) do
     t.string   "string"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "login_count",        default: 0, null: false
+    t.integer  "failed_login_count", default: 0, null: false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.index ["login"], name: "index_admins_on_login", unique: true
   end
 

@@ -14,7 +14,6 @@ class AdminsController < ApplicationController
   end
 
   def show
-    @admin = current_admin
   end
   
   private
