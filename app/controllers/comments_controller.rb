@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     book = Book.find params[:book_id]
     comment = book.comments.new post_params
     comment.save
-    flash[:notice] = "Comment successfully saved"
+    flash[:success] = "Comment successfully saved"
     redirect_to book_path(book)
   end
 

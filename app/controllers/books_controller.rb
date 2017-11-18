@@ -16,7 +16,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new post_params
     if @book.save
-      flash[:notice] = "#{@book.title} successfully saved"
+      flash[:success] = "#{@book.title} successfully saved"
       redirect_to @book
     else
       render :new
@@ -26,7 +26,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update_attributes post_params
-      flash[:notice] = "#{@book.title} successfully updated"
+      flash[:success] = "#{@book.title} successfully updated"
       redirect_to @book
     else
       render :edit
