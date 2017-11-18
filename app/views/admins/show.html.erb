@@ -1,3 +1,20 @@
-<p>Your Admin id: <%= @admin.id %></p>
 
-<%= puts "++++++++++++ #{@admin.id}" %>
+<% if current_admin %>
+  <div class="page-header"><h1>Welcome back <%= current_admin.login %>!</h1></div>
+
+  <h2>Some info about you...</h2>
+
+  <div class="well well-lg">
+    <ul>
+      <li>Login count: <%= current_admin.login_count %></li>
+      <li>Failed login count: <%= current_admin.failed_login_count %></li>
+      <li>Last request: <%= current_admin.last_request_at.to_formatted_s(:long_ordinal) %></li>
+      <li>Current login at: <%= current_admin.current_login_at.to_formatted_s(:long_ordinal) %></li>
+      <li>Last login at: <%= current_admin.last_login_at.to_formatted_s(:long_ordinal) %></li>
+      <li>Current login IP: <%= current_admin.current_login_ip %></li>
+      <li>Last login IP: <%= current_admin.last_login_ip %></li>
+    </ul>
+  </div>
+<% else %>
+    [...]
+<% end %><%= puts "++++++++++++ #{current_admin.id}" %>
