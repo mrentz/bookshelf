@@ -7,7 +7,7 @@ class AdminSessionsController < ApplicationController
     @admin_session = AdminSession.new(admin_session_params)
     if @admin_session.save
       flash[:success] = "Welcome back!"
-      redirect_to root_path
+      redirect_to books_path
     else
       render :new
     end
@@ -22,6 +22,6 @@ class AdminSessionsController < ApplicationController
   private
 
   def admin_session_params
-    params.require(:admin_session).permit(:email, :password, :remember_me)
+    params.require(:admin_session).permit(:login, :password, :remember_me)
   end
 end
