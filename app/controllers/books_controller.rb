@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
-
+  
+before_filter :login_required, :except => [:index, :show]
+  
   def index
-#    @users = User.paginate(page: params[:page])
+#   @users = User.paginate(page: params[:page])
     @books = Book.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
 
@@ -41,13 +43,20 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    flash[:notice] = "#{book.title} deleted"
+    flash[:success] = "#{book.title} deleted"
     redirect_to books_path
   end
   
   private
   def post_params
     params.require(:book).permit(:id, :title, :thoughts)
+  end
+  
+  def login_required
+    unless current_admin
+      flash[:warning] = 'Only logged in admins an access this page.'
+      redirect_to books_path
+    end
   end
   
 end

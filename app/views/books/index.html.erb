@@ -1,7 +1,13 @@
 <h1>Booklist</h1>
-This is a list of books. The list is paginated and ordered descending by date listed. Anyone can comment on a book. <br>
+This is a list of books. The list is paginated and ordered descending by date listed. </p>
 
-At this stage anyone can add a book to the list.
+Anyone can comment on a book!</p>
+
+<% unless current_admin %>
+
+But you will have to sign up if you want to be an Admin so you can add and edit books and delete them as well! </p>
+
+<% end %>
 
   <%@books.each do |book| %>
   <h2> <%= link_to book.title, book_path(book) %></h2>
@@ -10,11 +16,13 @@ At this stage anyone can add a book to the list.
 
   <%= will_paginate @books %>
 
+  <% if current_admin %>
+
   <div>
     <p>
       Admin actions: <%= link_to 'New Book', new_book_path %>
     </p>
       </div>
 
-
+  <% end %>
 

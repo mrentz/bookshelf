@@ -37,6 +37,9 @@
 </div>
 
 <div><br><br>
+
+<% if current_admin %>
+  
 Admin Actions:
 
   <%= link_to 'Edit', edit_book_path(@book) %>
@@ -48,5 +51,7 @@ Admin Actions:
   
 <br><br>
 </div>
+
+<% end %>
 
 <%= render 'return' %>
