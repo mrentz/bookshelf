@@ -1,6 +1,16 @@
 
 <% if current_admin %>
-  <div class="page-header"><h1>Welcome back <%= current_admin.login %>!</h1></div>
+<div class="page-header"><h1>Friendly greeting to you <%= current_admin.login %>!</h1></div>
+
+<div>
+  <h2>This is the list of books belonging to Admin <%= current_admin.login.capitalize %></h2>
+  <% current_admin.books.each do |book| %>
+  <h3> <%= link_to book.title, book_path(book) %></h3>
+  <% end %>
+
+  <%= will_paginate @books %>
+
+</div>
 
   <h2>Some info about you...</h2>
 

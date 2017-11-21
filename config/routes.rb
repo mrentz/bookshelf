@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     root 'pages#index'
 
-    resources :admins, only: [:new, :create, :show]
+    resources :admins
 
     resources :admin_sessions, only: [:create, :destroy]
     

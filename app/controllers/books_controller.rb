@@ -17,6 +17,9 @@ before_filter :login_required, :except => [:index, :show]
 
   def create
     @book = Book.new post_params
+    @book.admin_id = current_admin.id
+    puts "+++++++ #{current_admin.id}"
+    puts "+++++++ #{@book.admin_id}"
     if @book.save
       flash[:success] = "#{@book.title} successfully saved"
       redirect_to @book
@@ -27,6 +30,7 @@ before_filter :login_required, :except => [:index, :show]
 
   def update
     @book = Book.find(params[:id])
+    @book.admin_id = current_admin.id
     if @book.update_attributes post_params
       flash[:success] = "#{@book.title} successfully updated"
       redirect_to @book
@@ -49,7 +53,7 @@ before_filter :login_required, :except => [:index, :show]
   
   private
   def post_params
-    params.require(:book).permit(:id, :title, :thoughts)
+    params.require(:book).permit(:id, :title, :thoughts, :admin_id)
   end
   
   def login_required
